@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 import model.Postagem;
 import model.Tema;
@@ -22,18 +23,18 @@ public class CriarUsuario {
 		postagem1.setDescricao("O flamengo é uma merda");
 		postagem1.getDataPostagem();
 		
+		
 	    List<Postagem> postagens = new ArrayList<Postagem>();
 	    postagens.add(postagem1);
+	    
 		
-	    LocalDate data = LocalDate.now();
-	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("01/02/"
-	    		+ "2001");
-	    String dataFormatada = data.format(formatter);
+	   
 	    
 	    Usuario tipo = new  UsuarioComum();
 	    Usuario usuario1 = new UsuarioComum(
-				"Marcos" , "Marcos@gmail.com"
-		, data,"123456789" , "123456789" ,postagens  ,tipo);
+				"Marcos" ,   "Marcos@gmail.com"
+		, "11-03-2011","123456789" , "123456789" , postagens  ,
+		tipo);
 		
 		
 	}

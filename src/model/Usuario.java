@@ -1,8 +1,11 @@
 package model;
 
+import java.text.DateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 /*
  * A classe Usuario não pode ser instânciada
@@ -13,15 +16,20 @@ public abstract class Usuario {
 
 	private String nome;
 	private String email;
-	private LocalDate dataNascimento;
+    private	String dataNascimento ;
+	
+	
 	private String senha;
 	private String senhaConfirm;
 
 	private List<Postagem> postagem;
 
-	private boolean tipoDeUsuario;
 
-	public Usuario(String nome, String email, LocalDate dataNascimento, String senha, String senhaConfirm,
+	
+	
+	
+
+	public Usuario(String nome, String email, String dataNascimento, String senha, String senhaConfirm,
 			List<Postagem> postagem, Usuario u) {
 
 		this.nome = nome;
@@ -82,11 +90,18 @@ public abstract class Usuario {
 		this.email = email;
 	}
 
-	public LocalDate getDataNascimento() {
-		return dataNascimento;
+	public String getDataNascimento() {
+		
+		Locale.setDefault(new Locale("pt","Brazil"));
+		
+		Date hoje = new Date();
+		dataNascimento = DateFormat.getInstance().format(hoje);
+		
+		return dataNascimento;	
+		
 	}
 
-	public void setDataNascimento(LocalDate dataNascimento) {
+	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 

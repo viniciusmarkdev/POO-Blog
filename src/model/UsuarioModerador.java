@@ -10,7 +10,7 @@ public class UsuarioModerador  extends  Usuario{
 	public UsuarioModerador(String nome, String email, Date dataNascimento,
 			String senha, String senhaConfirm,
 			List<Postagem> postagem) {
-		super(nome, email, dataNascimento, senha, senhaConfirm, postagem);
+		super(nome, email, dataNascimento, senha, senhaConfirm, postagem , Usuario u);
 		
 	}
 
