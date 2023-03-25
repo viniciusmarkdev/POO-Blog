@@ -1,38 +1,64 @@
 package model;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.Date;
 
 public class Postagem {
 	
 	
-	 LocalDate dataPostagem;
+	 Date horaPostagem = new Date();
+	 
 	 Tema tema;
-	 LocalDate dataAtualizacao;
+	 
+	 Date horaAtualizacao = new Date();
+	 
 	 String descricao;
+	 
+	 
+	 
 	
-	 public Postagem(Tema tema) {
+	 @Override
+	public String toString() {
+		return "\n"+"Postagem :"+"\n"+"Hora de postagem :"+ horaPostagem+ "\n" +"tema : " + tema +"\n"+
+   "Hora da Atualizacao : "
+	+ horaAtualizacao+"\n"
+				+ "descricao : " + descricao ;
+	}
+
+	public Postagem(Tema tema) {
 		 
 		 this.tema = tema;
+		 
 	 }
 	 
-	 public LocalDate getDataPostagem() {
-		return dataPostagem;
+	
+	
+
+	public Date getHoraPostagem() {
+		return horaPostagem;
 	}
-	public void setDataPostagem(LocalDate dataPostagem) {
-		this.dataPostagem = dataPostagem;
+
+	public void setHoraPostagem(Date horaPostagem) {
+		this.horaPostagem = horaPostagem;
 	}
+
+	public Date getHoraAtualizacao() {
+	
+		return horaAtualizacao;
+	}
+
+	public void setHoraAtualizacao(Date horaAtualizacao) {
+		this.horaAtualizacao = horaAtualizacao;
+	}
+
 	public Tema getTema() {
 		return tema;
 	}
 	public void setTema(Tema tema) {
 		this.tema = tema;
 	}
-	public LocalDate getDataAtualizacao() {
-		return dataAtualizacao;
-	}
-	public void setDataAtualizacao(LocalDate dataAtualizacao) {
-		this.dataAtualizacao = dataAtualizacao;
-	}
+	
 	public String getDescricao() {
 		return descricao;
 	}

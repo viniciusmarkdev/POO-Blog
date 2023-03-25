@@ -15,19 +15,30 @@ import java.util.Locale;
 public abstract class Usuario {
 
 	private String nome;
+	
 	private String email;
+	
     private	String dataNascimento ;
 	
 	
 	private String senha;
+	
 	private String senhaConfirm;
 
 	private List<Postagem> postagem;
+    
+	private List<List<Postagem>> postagens;
+    
+	
+	
+	
+	
 
-
-	
-	
-	
+	@Override
+	public String toString() {
+		return "Usuario : "+"\n"+"Nome :" + nome +"\n"+"E-mail : "+ email +"\n"+ "dataNascimento : " + dataNascimento +"\n"+ "senha :" + senha
+				+"\n"+"senhaConfirm : "+ senhaConfirm +"\n"+"postagem " + postagem ;
+	}
 
 	public Usuario(String nome, String email, String dataNascimento, String senha, String senhaConfirm,
 			List<Postagem> postagem, Usuario u) {
@@ -41,12 +52,19 @@ public abstract class Usuario {
 
 		if (u instanceof UsuarioComum) {
 
-			System.out.println("Você criou um usuario comum ");
+	 System.out.println("Você criou um usuario comum com nome de "
+	 		+ ""+ this.nome);
+	 
+	
+	 
+		
 		} else {
 
 		
-				System.out.println("Você criou um usuario moderador ");
-			}
+		System.out.println("Você criou um usuario moderador ");
+			
+		
+		}
 
 		}
 	
@@ -64,11 +82,11 @@ public abstract class Usuario {
 	}
 
 	/*
-	 * Encapsulamento - a classe que instân0 ciar as classes que herdam essa classe
+	 * Encapsulamento - a classe que instânciar as classes que herdam essa classe
 	 * Abstrata terá acesso somente aos métodos getters e setters.
 	 * 
 	 * 
-	 * Não sei o que o código faz somente o implemento.
+	 * Não sei o que o código faz.Somente lhe implemento
 	 * 
 	 * 
 	 * 
@@ -95,8 +113,9 @@ public abstract class Usuario {
 		Locale.setDefault(new Locale("pt","Brazil"));
 		
 		Date hoje = new Date();
-		dataNascimento = DateFormat.getInstance().format(hoje);
 		
+		dataNascimento = DateFormat.getInstance().format(hoje);
+			
 		return dataNascimento;	
 		
 	}

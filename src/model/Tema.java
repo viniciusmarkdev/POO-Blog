@@ -4,6 +4,13 @@ public class Tema {
 	
 	
 	String nome ;
+	
+	
+
+	@Override
+	public String toString() {
+		return  nome ;
+	}
 
 	public String getNome() {
 		return nome;
