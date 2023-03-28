@@ -8,8 +8,29 @@ import java.util.List;
 import java.util.Locale;
 
 /*
- * A classe Usuario não pode ser instânciada
+ * A classe Usuario não pode ser instânciada , somente 
+ * as subclasses que herda esse classe Usuario
  * 
+ * */
+
+
+/*
+ * 
+ * Se há  um elemento importante, possui comportamentos e atributos
+,  ele deveria ser representado como um Objeto! 
+   Podemos criaruma classe e definindo os 
+   atributos e comportamentos específicos desse novo tipo.
+   A classe criada é a classe UsuarioComum e UsuarioModerador
+ * 
+ * /
+ 
+
+
+/*
+ * Devemos pensar em nosso código 
+ * pensando como será sua evolução no futuro
+ * 
+ *  
  * */
 
 public abstract class Usuario {
@@ -27,7 +48,7 @@ public abstract class Usuario {
 
 	private List<Postagem> postagem;
     
-	private List<List<Postagem>> postagens;
+	
     
 	
 	
@@ -50,7 +71,7 @@ public abstract class Usuario {
 		this.senhaConfirm = senhaConfirm;
 		this.postagem = postagem;
 
-		if (u instanceof UsuarioComum) {
+	  if (u instanceof UsuarioComum) {
 
 	 System.out.println("Você criou um usuario comum com nome de "
 	 		+ ""+ this.nome);
@@ -58,7 +79,7 @@ public abstract class Usuario {
 	
 	 
 		
-		} else {
+		}else if(u instanceof UsuarioModerador) {
 
 		
 		System.out.println("Você criou um usuario moderador ");
@@ -73,6 +94,8 @@ public abstract class Usuario {
 	}
 
 	
+	//Evitar de deixar infromações tão específicas em nosso
+	//moldes
 
 	public void mostrarPostagem() {
 
@@ -147,5 +170,12 @@ public abstract class Usuario {
 	public void setPostagem(List<Postagem> postagem) {
 		this.postagem = postagem;
 	}
+	
+	public void fazerPostagem() {
+		
+	}
+	
+	
+	
 
 }

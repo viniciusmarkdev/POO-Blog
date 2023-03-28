@@ -3,21 +3,26 @@ package model;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
+import java.util.List;
 
-public class Postagem {
+public abstract class Postagem{
 	
 	
-	 Date horaPostagem = new Date();
+	private Date horaPostagem = new Date();
 	 
-	 Tema tema;
+	private Tema tema;
 	 
-	 Date horaAtualizacao = new Date();
+	private  Date horaAtualizacao = new Date();
 	 
-	 String descricao;
+	private String descricao;
 	 
-	 
-	 
+	private Usuario usuario; 
 	
+	
+	 
+	 
+	 
+
 	 @Override
 	public String toString() {
 		return "\n"+"Postagem :"+"\n"+"Hora de postagem :"+ horaPostagem+ "\n" +"tema : " + tema +"\n"+
@@ -26,9 +31,11 @@ public class Postagem {
 				+ "descricao : " + descricao ;
 	}
 
-	public Postagem(Tema tema) {
+	public Postagem(Tema tema , Usuario usuario) {
 		 
 		 this.tema = tema;
+		 this.usuario = usuario;
+		 
 		 
 	 }
 	 
@@ -65,9 +72,17 @@ public class Postagem {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	 
-	 
 
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	 
+	 
+   
 	 
 	 
 }

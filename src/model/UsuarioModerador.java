@@ -4,22 +4,20 @@ import java.util.Date;
 import java.util.List;
 
 public class UsuarioModerador  extends  Usuario{
-	
-	
-	
-	public UsuarioModerador(String nome, String email, Date dataNascimento,
-			
-			String senha, String senhaConfirm,
-			List<Postagem> postagem) {
-		super(nome, email, dataNascimento, senha, senhaConfirm, postagem , Usuario u);
-		
+
+	public UsuarioModerador() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	
-	public void Mensagem() {
-		
-		System.out.println("Você criou um Usuario do tipo moderador");
+	public UsuarioModerador(String nome, String email, String dataNascimento, String senha, String senhaConfirm,
+			List<Postagem> postagem, Usuario u) {
+		super(nome, email, dataNascimento, senha, senhaConfirm, postagem, u);
+		// TODO Auto-generated constructor stub
 	}
+	
+	
+	
 	
 	
 	
