@@ -47,6 +47,8 @@ public abstract class Usuario {
 	private String senhaConfirm;
 
 	private List<Postagem> postagem;
+	
+	Postagem postagemU;
     
 	
     
@@ -54,6 +56,14 @@ public abstract class Usuario {
 	
 	
 	
+
+	public Postagem getPostagemU() {
+		return postagemU;
+	}
+
+	public void setPostagemU(Postagem postagemU) {
+		this.postagemU = postagemU;
+	}
 
 	@Override
 	public String toString() {
@@ -97,12 +107,7 @@ public abstract class Usuario {
 	//Evitar de deixar infromações tão específicas em nosso
 	//moldes
 
-	public void mostrarPostagem() {
-
-		System.out.println("Seja bem vindo ao faceback : " + nome);
-		System.out.println("Comemntou  " + postagem);
-
-	}
+	
 
 	/*
 	 * Encapsulamento - a classe que instânciar as classes que herdam essa classe
@@ -164,6 +169,7 @@ public abstract class Usuario {
 	}
 
 	public List<Postagem> getPostagem() {
+		
 		return postagem;
 	}
 
@@ -175,7 +181,11 @@ public abstract class Usuario {
 		
 	}
 	
+	public abstract void mostrarPostagem();
+
+	public abstract void adicionarPostagem(Postagem postagem);
 	
+   public abstract void	mostrarTodasAsPostagem();
 	
 
 }

@@ -1,6 +1,7 @@
 package model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,8 +19,11 @@ public class UsuarioComum extends Usuario {
 	 * 
 	 * 
 	 */
+	
 
 	
+	
+	List<Postagem> postagemUser =  new ArrayList<>();
 	
 	public UsuarioComum(String nome, String email, String dataNascimento, String senha, String senhaConfirm,
 			List<Postagem> postagem, Usuario u) {
@@ -32,6 +36,40 @@ public class UsuarioComum extends Usuario {
 
 	}
 	
+	
+   public void adicionarPostagem(Postagem p)	{
+	
+	
+	   
+	   
+	
+	 postagemUser.add(p);
+ 
+	   
+	
+	}
+   
+   public void mostrarPostagem() {
+	   
+	   System.out.println(postagemUser);
+   }
+
+      public List<Postagem> getPostagemUser() {
+	    return postagemUser;
+    }
+
+      public void setPostagemUser(List<Postagem> postagemUser) {
+	  this.postagemUser = postagemUser;
+}
+
+	@Override
+	public void mostrarTodasAsPostagem() {
+	
+		
+	}
+
+      
+   
 	
 	
 	

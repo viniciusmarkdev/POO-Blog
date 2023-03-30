@@ -25,18 +25,32 @@ public class Postagens  {
 	
   
 	
-	public void postar(PostagemUser postagem) {
+	public void postar(Usuario usuario , Postagem postagem) {
 		
-	    postagem.adicionar(postagem);
+	  
+		usuario.adicionarPostagem(postagem);
+	
 		
 		
 	}
 	
-	public void monstrarPostagens(PostagemUser postagem) {
+	  public void monstrarPostagensDoUser(Usuario usuario) {
 		
-		postagem.ListarPostagens();
+	   
+		
+			
+			usuario.mostrarPostagem();
+			
+	
 		
 	}
+	  
+	public void listarTodasPostagens(Usuario usuario ) {
+		
+		usuario.mostrarTodasAsPostagem();
+	}
+	
+
 	
 	
 	

@@ -1,11 +1,10 @@
 package model;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.Date;
-import java.util.List;
 
-public abstract class Postagem{
+import java.util.Date;
+
+
+public  class Postagem{
 	
 	
 	private Date horaPostagem = new Date();
@@ -19,11 +18,7 @@ public abstract class Postagem{
 	private Usuario usuario; 
 	
 	
-	 
-	 
-	 
-
-	 @Override
+	@Override
 	public String toString() {
 		return "\n"+"Postagem :"+"\n"+"Hora de postagem :"+ horaPostagem+ "\n" +"tema : " + tema +"\n"+
    "Hora da Atualizacao : "
