@@ -18,7 +18,7 @@ import java.util.Locale;
  * 
  * Se há  um elemento importante, possui comportamentos e atributos
 ,  ele deveria ser representado como um Objeto! 
-   Podemos criaruma classe e definindo os 
+   Podemos criar uma classe e definindo os 
    atributos e comportamentos específicos desse novo tipo.
    A classe criada é a classe UsuarioComum e UsuarioModerador
  * 
@@ -34,6 +34,8 @@ import java.util.Locale;
  * */
 
 public abstract class Usuario {
+	
+	private int id;
 
 	private String nome;
 	
@@ -46,53 +48,53 @@ public abstract class Usuario {
 	
 	private String senhaConfirm;
 
-	private List<Postagem> postagem;
+	protected List<Postagem> postagem;
 	
 	Postagem postagemU;
-    
-	
-    
 	
 	
-	
-	
-
-	public Postagem getPostagemU() {
-		return postagemU;
-	}
-
-	public void setPostagemU(Postagem postagemU) {
-		this.postagemU = postagemU;
-	}
 
 	@Override
 	public String toString() {
-		return "Usuario : "+"\n"+"Nome :" + nome +"\n"+"E-mail : "+ email +"\n"+ "dataNascimento : " + dataNascimento +"\n"+ "senha :" + senha
+		
+		return "Usuario : "+"\n"+"Nome :" + nome +"\n" +"Id : "+id+ "\n"+"E-mail : "+ email +"\n"+ "dataNascimento : " + dataNascimento +"\n"+ "senha :" + senha
 				+"\n"+"senhaConfirm : "+ senhaConfirm +"\n"+"postagem " + postagem ;
 	}
 
-	public Usuario(String nome, String email, String dataNascimento, String senha, String senhaConfirm,
+	public Usuario(String nome, int id , String email, String dataNascimento, String senha, String senhaConfirm,
 			List<Postagem> postagem, Usuario u) {
 
 		this.nome = nome;
+		this.id = id;
 		this.email = email;
 		this.dataNascimento = dataNascimento;
 		this.senha = senha;
 		this.senhaConfirm = senhaConfirm;
 		this.postagem = postagem;
-
-	  if (u instanceof UsuarioComum) {
+		
+	
+		  
+		  
+	  if (u instanceof UsuarioComum )  {
 
 	 System.out.println("Você criou um usuario comum com nome de "
 	 		+ ""+ this.nome);
+	  
+	     id++;
+	 
 	 
 	
 	 
 		
 		}else if(u instanceof UsuarioModerador) {
+			
+		
+			
 
 		
 		System.out.println("Você criou um usuario moderador ");
+		
+		
 			
 		
 		}
@@ -119,6 +121,9 @@ public abstract class Usuario {
 	 * 
 	 * 
 	 */
+	
+	
+	
 
 	public String getNome() {
 		return nome;
@@ -126,6 +131,16 @@ public abstract class Usuario {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int  id) {
+		this.id = id;
 	}
 
 	public String getEmail() {
@@ -168,24 +183,33 @@ public abstract class Usuario {
 		this.senhaConfirm = senhaConfirm;
 	}
 
-	public List<Postagem> getPostagem() {
+	
+    public List<Postagem> getPostagem() {
 		
-		return postagem;
+ 		return postagem;
+ 	}
+ 	
+   
+ 
+ 
+		public Postagem getPostagemU() {
+		return postagemU;
 	}
 
-	public void setPostagem(List<Postagem> postagem) {
-		this.postagem = postagem;
+	public void setPostagemU(Postagem postagemU) {
+		this.postagemU = postagemU;
 	}
+   
+  
+
 	
-	public void fazerPostagem() {
-		
-	}
+	
 	
 	public abstract void mostrarPostagem();
 
 	public abstract void adicionarPostagem(Postagem postagem);
 	
-   public abstract void	mostrarTodasAsPostagem();
+ 
 	
 
 }

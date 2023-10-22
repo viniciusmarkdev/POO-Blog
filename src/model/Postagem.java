@@ -1,29 +1,62 @@
 package model;
 
 
+import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 
 public  class Postagem{
 	
 	
-	private Date horaPostagem = new Date();
+	private String horaPostagem ;
+	
+	private  Long  idPostagem;
+	
 	 
 	private Tema tema;
 	 
-	private  Date horaAtualizacao = new Date();
+	private   Date horaAtualizacao = new Date();
 	 
 	private String descricao;
 	 
 	private Usuario usuario; 
 	
+	private List<Date> dataPostagem;
+	
+    
+	
+	
+	
+	
+	
+
 	
 	@Override
 	public String toString() {
-		return "\n"+"Postagem :"+"\n"+"Hora de postagem :"+ horaPostagem+ "\n" +"tema : " + tema +"\n"+
+		return "\n"+"Postagem :"+"\n"+"Hora de postagem :"+ this.addDataPostagem()+"\n" +"tema : " + tema +"\n"+
    "Hora da Atualizacao : "
 	+ horaAtualizacao+"\n"
 				+ "descricao : " + descricao ;
+	}
+	
+	public Date addDataPostagem() {
+		
+	    Locale.setDefault(new Locale("pt","Brazil"));
+		
+		Date hoje = new Date();
+		
+		horaPostagem  = DateFormat.getInstance().format(hoje);
+			
+		
+		
+		dataPostagem = new ArrayList<Date>();
+		
+		dataPostagem.add(hoje);
+	    return dataPostagem.get(0) ;
+		
 	}
 
 	public Postagem(Tema tema , Usuario usuario) {
@@ -35,13 +68,22 @@ public  class Postagem{
 	 }
 	 
 	
+
 	
 
-	public Date getHoraPostagem() {
+	public Long getIdPostagem() {
+		return idPostagem;
+	}
+
+	public void setIdPostagem(Long idPostagem) {
+		this.idPostagem = idPostagem;
+	}
+
+	public String getHoraPostagem() {
 		return horaPostagem;
 	}
 
-	public void setHoraPostagem(Date horaPostagem) {
+	public void setHoraPostagem(String horaPostagem) {
 		this.horaPostagem = horaPostagem;
 	}
 

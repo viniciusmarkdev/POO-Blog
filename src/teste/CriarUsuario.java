@@ -1,3 +1,4 @@
+
 package teste;
 
 import java.time.LocalDate;
@@ -19,15 +20,17 @@ public class CriarUsuario {
 	public static void main(String[] args) {
 		
 		
-
+      
 		
 		List<Postagem> postagens = new ArrayList<Postagem>();
 	  	
       	
 		
 		Usuario tipo = new UsuarioComum();
-		UsuarioComum usuario1 = new UsuarioComum("Marcos", "Marcos@gmail.com", "11-03-2011", "123456789", "123456789",
+		UsuarioComum usuario1 = new UsuarioComum("Marcos", tipo.getId() ,"Marcos@gmail.com", "11-03-2011", "123456789", "123456789",
 				postagens, tipo);
+		
+		
 		Tema tema = new Tema();
 	    
 	    Tema tema1 = new Tema();
@@ -53,37 +56,26 @@ public class CriarUsuario {
         
         
     	List<Postagem> postagensMod = new ArrayList<Postagem>();
-    	Usuario tipoMod = new UsuarioModerador();
-    	UsuarioModerador usuarioMod = new UsuarioModerador("Zuck", "Zuck@gmail.com", "11-03-1970", 
+    	
+    	Usuario tipoMod = UsuarioModerador.getInstanceSemParametro();
+    	Usuario UsuarioMod = UsuarioModerador.getInstance("Zuck" , tipoMod.getId() ,"Zuck@gmail.com", "11-03-1970", 
     			"123456789", "123456789",
 				postagensMod, tipoMod);
+    	
+    	
+    	
 		Tema temaMod = new Tema();
 		temaMod.setNome("Programação");
-		Postagem postagemMod = new Postagem (temaMod , usuarioMod);
-		postagemMod.setDescricao("Oi moanoi , oi moanoite , oi Moanoite , oi moa noite");
+		Postagem postagemMod = new Postagem (temaMod , tipoMod);
+		postagemMod.setDescricao("Oi moa noite , oi moa noite , oi Moa noite , oi moa noite");
 		
 		
 		
-		teste.postar(usuarioMod, postagemMod);
-		teste.monstrarPostagensDoUser(usuarioMod);
+		teste.postar(tipoMod, postagemMod);
 		
-		teste.listarTodasPostagens(usuarioMod);
+		teste.monstrarPostagensDoUser(tipoMod);
 		
 
-	  	
-    	
-      
-      	
-  
-	
-		
-		
-	
-
-
-	
-
-	
 
 	}
 

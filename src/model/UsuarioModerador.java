@@ -4,56 +4,79 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class UsuarioModerador  extends  Usuario{
+
+public class UsuarioModerador extends Usuario{
 	
-	List<List<Postagem>> todasPostagens = new ArrayList<>();
+	private static UsuarioModerador  instancia;
+	
     List<Postagem> postagemMod = new ArrayList<>();
-	List<Postagem> postagemUser =  new ArrayList<>();
 	
-	public UsuarioModerador() {
+    
+    
+   
+	
+	private  UsuarioModerador() {
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	public UsuarioModerador(String nome, String email, String dataNascimento, String senha, String senhaConfirm,
+	
+	private UsuarioModerador(String nome , int id , String email, String dataNascimento, String senha, String senhaConfirm,
 			List<Postagem> postagem, Usuario u) {
-		super(nome, email, dataNascimento, senha, senhaConfirm, postagem, u);
+		super(nome, id , email, dataNascimento, senha, senhaConfirm, postagem, u);
 		// TODO Auto-generated constructor stub
 	}
 	
+	public static  UsuarioModerador getInstance (String nome , int id , String email, String dataNascimento, String senha, String senhaConfirm,
+			List<Postagem> postagem, Usuario u) {
+		
+		if(instancia==null) {
+			
+			instancia = new UsuarioModerador(nome ,  id , email, dataNascimento, senha, senhaConfirm,
+					 postagem,  u);
+		}
+		
+		return instancia;
+	}
+	
+	
+	public static  UsuarioModerador getInstanceSemParametro () {
+		
+		if(instancia==null) {
+			
+			instancia = new UsuarioModerador();
+		}
+		
+		return instancia;
+	}
+	
+	
+	
 	
 
-	
-
-
-    @Override
+   
 	public void adicionarPostagem(Postagem postagem)	{
 		
 		
-	      
-	 postagemUser.addAll(postagem.getUsuario().getPostagem());
-	 postagemMod.add(postagem);
-	 
-	 todasPostagens.add(postagemUser);
-	 todasPostagens.add(postagemMod);
-	 
+	postagemMod.add(postagem);
+
+	
+	
+
+	
 		
 	}
-	
-	@Override
+
 	public void mostrarPostagem() {
 		
 		System.out.println(postagemMod);
 
 	}
-	
-	
-    public void mostrarTodasAsPostagem() {
-		
-		System.out.println(todasPostagens);
 
-	}
 	
+	
+	
+    
 	
 	
 	

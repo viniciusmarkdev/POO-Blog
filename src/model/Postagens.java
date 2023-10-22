@@ -45,10 +45,9 @@ public class Postagens  {
 		
 	}
 	  
-	public void listarTodasPostagens(Usuario usuario ) {
-		
-		usuario.mostrarTodasAsPostagem();
-	}
+	  
+	
+	  
 	
 
 	
